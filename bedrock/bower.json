@@ -1,6 +1,6 @@
 {
-  "name": "bedrock-angular-session",
-  "version": "0.0.1",
+  "name": "bedrock-angular-session-test",
+  "version": "0.0.0",
   "moduleType": [
     "amd"
   ],
@@ -10,7 +10,7 @@
   ],
   "description": "session bower dependencies.",
   "dependencies": {
-    "bedrock-angular": "^1.0.0",
+    "bedrock-angular": "^1.4.0",
     "bedrock-angular-alert": "^1.0.0",
     "bedrock-angular-form": "^1.0.0"
   },
@@ -18,3 +18,4 @@
     "angular": "~1.3.15"
   }
 }
+

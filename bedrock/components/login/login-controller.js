@@ -21,8 +21,8 @@ function factory($scope, $http, brSessionService) {
   };
 
   self.check = function() {
-    Promise.resolve(brSessionService.get()).then(function(response) {
-      self.session = response.data;
+    Promise.resolve(brSessionService.get()).then(function(session) {
+      self.session = session;
       $scope.$apply();
     });
   };

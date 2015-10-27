@@ -3,9 +3,6 @@
  */
 var bedrock = require('bedrock');
 var config = bedrock.config;
-var brPassport = require('bedrock-passport');
-var LocalStrategy = require('passport-local').Strategy;
-var passport = brPassport.passport;
 var path = require('path');
 var fs = require('fs');
 require('bedrock-express');
@@ -35,35 +32,23 @@ config.requirejs.bower.packages.push({
   }
 });
 
-// returns the test user regardless of what username/password is used
-passport.use(new LocalStrategy(function(username, password, done) {
-    return done(null, {id: '1131235523', name: 'Bingo Bango'});
-  }));
+var user = null;
 
-// put the user object into the session
-passport.serializeUser(function(user, cb) {
-  cb(null, user);
-});
-
-// pull the user object out of the session
-passport.deserializeUser(function(user, cb) {
-  cb(null, user);
+bedrock.events.on('bedrock-session-rest.session.get', function(req, session) {
+  if(user) {
+    session.id = user.id;
+  }
 });
 
 bedrock.events.on('bedrock-express.configure.routes', function(app) {
-
-  app.post(
-    '/login', passport.authenticate('local'), function(req, res, next) {
-      res.json(req.user);
-    });
+  app.post('/login', function(req, res) {
+    user = {id: 'user123'};
+    res.json(user);
+  });
 
   app.get('/logout', function(req, res) {
-    if(req.isAuthenticated()) {
-      req.logout();
-      res.json({status: 'success'});
-      return;
-    }
-    res.json({status: 'failure'});
+    user = null;
+    res.json({status: 'success'});
   });
 });
 
