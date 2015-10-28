@@ -8,14 +8,19 @@ define([], function() {
 'use strict';
 
 /* @ngInject */
-function factory($http, config) {
+function factory($http, brModelService, config) {
   var service = {};
+
+  // empty session to start
+  service.session = {};
 
   service.get = function() {
     // FIXME: use url from config
     return Promise.resolve($http({method: 'GET', url: '/session'}))
       .then(function(response) {
-        return response.data;
+        // update session in place
+        brModelService.replace(service.session, response.data);
+        return service.session;
       });
   };
 
