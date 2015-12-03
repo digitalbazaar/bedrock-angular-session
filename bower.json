@@ -2,7 +2,7 @@
   "name": "bedrock-angular-session",
   "version": "1.1.1-dev",
   "main": "./session.js",
-  "moduleType": ["amd"],  
+  "moduleType": ["amd"],
   "ignore": [
     "bedrock/bower.json",
     "bedrock/bower_components",
@@ -13,6 +13,7 @@
   ],
   "dependencies": {
     "bedrock-angular": "^1.4.0",
-    "bedrock-angular-model": "^1.0.0"
+    "bedrock-angular-model": "^1.0.0",
+    "bedrock-angular-resolver": "^1.0.0"
   }
 }
