@@ -1,6 +1,6 @@
 {
   "name": "bedrock-angular-session",
-  "version": "1.2.1-dev",
+  "version": "1.2.1",
   "main": "./session.js",
   "moduleType": ["amd"],
   "ignore": [
