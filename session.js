@@ -13,13 +13,15 @@ module.service(sessionService);
 
 /* @ngInject */
 module.config(function(routeResolverProvider) {
+  routeResolverProvider.add('session', resolve);
+
   /* @ngInject */
-  routeResolverProvider.add('session', function($route, brSessionService) {
+  function resolve($route, brSessionService) {
     if(!$route.current.session) {
       return false;
     }
     return brSessionService.get();
-  });
+  }
 });
 
 return module.name;
