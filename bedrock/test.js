@@ -8,7 +8,7 @@ var fs = require('fs');
 require('bedrock-express');
 require('bedrock-requirejs');
 require('bedrock-server');
-require('bedrock-session-rest');
+require('bedrock-session-http');
 require('bedrock-views');
 
 var dir = path.join(__dirname, '..');
@@ -34,7 +34,7 @@ config.requirejs.bower.packages.push({
 
 var user = null;
 
-bedrock.events.on('bedrock-session-rest.session.get', function(req, session) {
+bedrock.events.on('bedrock-session-http.session.get', function(req, session) {
   if(user) {
     session.id = user.id;
   }

@@ -1,2 +1,2 @@
 # bedrock-angular-session
-Provides an Angular service for bedrock-session-rest
+Provides an Angular service for bedrock-session-http
