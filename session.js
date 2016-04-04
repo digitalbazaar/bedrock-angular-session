@@ -1,14 +1,22 @@
 /*!
  * Session module.
  *
- * Copyright (c) 2015 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
  */
-define(['angular', './session-service'], function(angular, sessionService) {
+define([
+  'angular',
+  './session-hovercard-directive',
+  './session-logout-directive',
+  './session-service'
+], function(
+  angular, sessionHovercardDirective, sessionLogoutDirective, sessionService) {
 
 'use strict';
 
 var module = angular.module('bedrock.session', ['bedrock.resolver']);
 
+module.directive(sessionHovercardDirective);
+module.directive(sessionLogoutDirective);
 module.service(sessionService);
 
 /* @ngInject */
