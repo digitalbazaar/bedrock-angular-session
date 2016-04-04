@@ -6,7 +6,7 @@ define(['angular'], function(angular) {
 'use strict';
 
 /* @ngInject */
-function factory(brRefreshService, brSessionService) {
+function factory($location, brRefreshService, brSessionService) {
   return {
     restrict: 'E',
     scope: {},
@@ -25,9 +25,26 @@ function factory(brRefreshService, brSessionService) {
       model.loggedIn = !!identity;
       model.identity = identity;
     });
+
+    model.logout = function() {
+      var err_ = null;
+      brSessionService.logout().catch(function(err) {
+        err_ = err;
+      }).then(function() {
+        if(err_) {
+          brAlertService.add('error', err_, {scope: scope});
+          scope.$apply();
+          return;
+        }
+        $location.url('/');
+        scope.$apply();
+      });
+    };
+
     model.refreshData = function() {
       brRefreshService.refresh();
     };
+
     // FIXME: refresh session data automatically elsewhere?
     brSessionService.get().catch(function() {}).then(function() {
       scope.$apply();
