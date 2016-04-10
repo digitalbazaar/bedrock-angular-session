@@ -1,6 +1,6 @@
 {
   "name": "bedrock-angular-session",
-  "version": "1.2.2-dev",
+  "version": "2.0.0",
   "main": "./session.js",
   "moduleType": ["amd"],
   "ignore": [
@@ -12,8 +12,8 @@
     "bedrock/test.js"
   ],
   "dependencies": {
-    "bedrock-angular": "^1.4.0",
-    "bedrock-angular-model": "^1.0.0",
-    "bedrock-angular-resolver": "^1.0.0"
+    "bedrock-angular": "^2.0.0",
+    "bedrock-angular-model": "^2.0.0",
+    "bedrock-angular-resolver": "^2.0.0"
   }
 }
