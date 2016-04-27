@@ -6,7 +6,7 @@ define(['angular'], function(angular) {
 'use strict';
 
 /* @ngInject */
-function factory($location, brRefreshService, brSessionService) {
+function factory($location, brAlertService, brRefreshService, brSessionService) {
   return {
     restrict: 'E',
     scope: {},
