@@ -12,7 +12,7 @@ function register(module) {
 }
 
 /* @ngInject */
-function factory($http, brModelService, config) {
+function factory($http, brModelService) {
   var service = {};
 
   // empty session to start

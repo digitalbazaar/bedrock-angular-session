@@ -1,7 +1,7 @@
-<div ng-if="$ctrl.loggedIn">
+<div>
   <ul class="nav navbar-nav navbar-hovercard-link">
     <li>
-      <a ng-click="$ctrl.hovercard.show=!$ctrl.hovercard.show;$ctrl.hovercard.triggerClicked=true">{{$ctrl.identity.label || '-'}}</a>
+      <a ng-click="$ctrl.hovercard.show=!$ctrl.hovercard.show;$ctrl.hovercard.triggerClicked=true">{{$ctrl.label || '-'}}</a>
     </li>
   </ul>
   <a class="btn navbar-btn navbar-link pull-right" stackable-trigger="$ctrl.hovercard" stackable-toggle="'active'"><i class="fa fa-user"></i></a>
@@ -9,26 +9,20 @@
     stackable-placement="bottom"
     stackable-alignment="right"
     br-lazy-compile="$ctrl.hovercard.show" br-lazy-id="br-navbar-hovercard">
-    <h3 class="stackable-popover-title">{{$ctrl.identity.label}}</h3>
+    <h3 class="stackable-popover-title">{{$ctrl.label}}</h3>
     <div class="stackable-popover-body">
-      <table class="table table-condensed hovercard">
-        <tbody>
-          <tr>
-            <td><strong>Email:</strong></td>
-            <td>{{$ctrl.identity.email}}</td>
-          </tr>
-        </tbody>
-      </table>
-      <div ng-show="$ctrl.identity" class="divider"></div>
+      <ng-transclude ng-transclude-slot="identity-slot"></ng-transclude>
+      <ng-transclude ng-transclude-slot="action-slot"></ng-transclude>
       <ul class="dropdown-menu stackable-menu">
         <li>
           <a class="stackable-cancel" style="padding-left: 3px"
-            ng-click="$ctrl.refreshData()"><i class="fa fa-refresh"></i> Refresh</a>
+            ng-click="$ctrl.onRefresh()"><i class="fa fa-refresh"></i> Refresh</a>
         </li>
         <li>
-          <a ng-click="$ctrl.logout()" style="padding-left: 3px"><i class="fa fa-sign-out"></i> Sign Out</a>
+          <a ng-click="$ctrl.onSignOut()" style="padding-left: 3px"><i class="fa fa-sign-out"></i> Sign Out</a>
         </li>
       </ul>
     </div>
   </stackable-popover>
 </div>
+<ng-transclude ng-transclude-slot="modal-slot"></ng-transclude>
