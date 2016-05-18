@@ -7,6 +7,10 @@ define([], function() {
 
 'use strict';
 
+function register(module) {
+  module.service('brSessionService', factory);
+}
+
 /* @ngInject */
 function factory($http, brModelService, config) {
   var service = {};
@@ -43,6 +47,6 @@ function factory($http, brModelService, config) {
   return service;
 }
 
-return {brSessionService: factory};
+return register;
 
 });

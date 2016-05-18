@@ -5,19 +5,18 @@
  */
 define([
   'angular',
-  './session-hovercard-directive',
-  './session-logout-directive',
+  './session-hovercard-component',
+  './session-logout-component',
   './session-service'
-], function(
-  angular, sessionHovercardDirective, sessionLogoutDirective, sessionService) {
+], function(angular) {
 
 'use strict';
 
 var module = angular.module('bedrock.session', ['bedrock.resolver']);
 
-module.directive(sessionHovercardDirective);
-module.directive(sessionLogoutDirective);
-module.service(sessionService);
+Array.prototype.slice.call(arguments, 1).forEach(function(register) {
+  register(module);
+});
 
 /* @ngInject */
 module.config(function(routeResolverProvider) {
@@ -31,7 +30,5 @@ module.config(function(routeResolverProvider) {
     return brSessionService.get();
   }
 });
-
-return module.name;
 
 });
