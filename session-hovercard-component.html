@@ -11,8 +11,7 @@
     br-lazy-compile="$ctrl.hovercard.show" br-lazy-id="br-navbar-hovercard">
     <h3 class="stackable-popover-title">{{$ctrl.label}}</h3>
     <div class="stackable-popover-body">
-      <ng-transclude ng-transclude-slot="identity-slot"></ng-transclude>
-      <ng-transclude ng-transclude-slot="action-slot"></ng-transclude>
+      <ng-transclude ng-transclude-slot="contentSlot"></ng-transclude>
       <ul class="dropdown-menu stackable-menu">
         <li>
           <a class="stackable-cancel" style="padding-left: 3px"
@@ -25,4 +24,4 @@
     </div>
   </stackable-popover>
 </div>
-<ng-transclude ng-transclude-slot="modal-slot"></ng-transclude>
+<ng-transclude ng-transclude-slot="modalSlot"></ng-transclude>
