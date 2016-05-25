@@ -16,8 +16,8 @@ function register(module) {
     templateUrl: requirejs.toUrl(
       'bedrock-angular-session/session-hovercard-component.html'),
     transclude: {
-      'contentSlot': "?brSessionHovercardContent",
-      'modalSlot': "?brSessionHovercardModal"
+      'contentSlot': '?brSessionHovercardContent',
+      'modalSlot': '?brSessionHovercardModal'
     }
   });
 }
