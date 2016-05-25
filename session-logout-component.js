@@ -9,7 +9,7 @@ function register(module) {
   module.component('brSessionLogout', {
     controller: Ctrl,
     bindings: {
-      callback: '&?brLogoutCallback'
+      onLogout: '&?brOnLogout'
     },
     templateUrl:
       requirejs.toUrl('bedrock-angular-session/session-logout-component.html')
@@ -25,8 +25,8 @@ function Ctrl($location, $scope, brAlertService, brSessionService) {
     brSessionService.logout().catch(function(err) {
       err_ = err;
     }).then(function() {
-      if(angular.isDefined(self.callback)) {
-        return self.callback({err: err_});
+      if(angular.isDefined(self.onLogout)) {
+        return self.onLogout({err: err_});
       }
       if(err_) {
         brAlertService.add('error', err_, {scope: $scope});
