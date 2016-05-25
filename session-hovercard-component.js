@@ -9,7 +9,7 @@ function register(module) {
   module.component('brSessionHovercard', {
     bindings: {
       label: '@brLabel',
-      onSignOut: '&brOnSignOut',
+      onLogout: '&brOnLogout',
       onRefresh: '&brOnRefresh'
     },
     controller: Ctrl,
