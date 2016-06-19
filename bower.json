@@ -12,7 +12,7 @@
     "bedrock/test.js"
   ],
   "dependencies": {
-    "bedrock-angular": "^2.0.0",
+    "bedrock-angular": "^2.3.0",
     "bedrock-angular-model": "^2.0.0",
     "bedrock-angular-resolver": "^2.0.0"
   }

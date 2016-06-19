@@ -20,7 +20,7 @@ function factory($http, brModelService) {
 
   service.get = function() {
     // TODO: make URL configurable
-    return Promise.resolve($http({method: 'GET', url: '/session'}))
+    return Promise.resolve($http({method: 'GET', url: '/session', queue: true}))
       .then(function(response) {
         // update session in place
         brModelService.replace(service.session, response.data);
