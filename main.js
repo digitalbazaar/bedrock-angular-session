@@ -12,7 +12,8 @@ define([
 
 'use strict';
 
-var module = angular.module('bedrock.session', ['bedrock.resolver']);
+var module = angular.module(
+  'bedrock.session', ['bedrock.resolver', 'ngStorage']);
 
 Array.prototype.slice.call(arguments, 1).forEach(function(register) {
   register(module);
