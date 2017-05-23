@@ -1,15 +1,6 @@
-define([
-  'angular',
-  './login-controller'
-],
-function(angular, loginController) {
-
-'use strict';
+import angular from 'angular';
+import LoginController from './login-controller.js';
 
 var module = angular.module('bedrock.session.login', []);
 
-module.controller(loginController);
-
-return module.name;
-
-});
+module.controller('brLoginController', LoginController);

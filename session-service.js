@@ -1,18 +1,10 @@
 /*!
  * Session Service.
  *
- * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define([], function() {
-
-'use strict';
-
-function register(module) {
-  module.service('brSessionService', factory);
-}
-
 /* @ngInject */
-function factory($http, brModelService) {
+export default function factory($http, brModelService) {
   var service = {};
 
   // empty session to start
@@ -46,7 +38,3 @@ function factory($http, brModelService) {
 
   return service;
 }
-
-return register;
-
-});

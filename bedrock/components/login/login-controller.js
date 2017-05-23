@@ -1,9 +1,5 @@
-define([], function() {
-
-'use strict';
-
 /* @ngInject */
-function factory($scope, $http, brSessionService) {
+export default function factory($scope, $http, brSessionService) {
   var self = this;
   self.username = null;
   self.password = null;
@@ -13,7 +9,7 @@ function factory($scope, $http, brSessionService) {
     Promise.resolve($http.post('/login', {
       username: self.username,
       password: self.password
-    })).then(function(response) {
+    })).then(function() {
       self.check();
     }).catch(function(err) {
       console.log('ERROR', err);
@@ -28,14 +24,10 @@ function factory($scope, $http, brSessionService) {
   };
 
   self.logout = function() {
-    Promise.resolve($http.get('/logout')).then(function(response) {
+    Promise.resolve($http.get('/logout')).then(function() {
       self.check();
     });
   };
 
   self.check();
 }
-
-return {loginController: factory};
-
-});

@@ -1,0 +1,19 @@
+{
+  "name": "bedrock-angular-session",
+  "version": "3.0.2",
+  "description": "Provides an Angular service for bedrock-session-http",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "~1.6.4",
+    "bedrock-angular-model": "^3.0.0",
+    "bedrock-angular-resolver": "^3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-angular-session.git"
+  },
+  "bugs": {
+    "url": "https://github.com/digitalbazaar/bedrock-angular-session/issues"
+  },
+  "homepage": "https://github.com/digitalbazaar/bedrock-angular-session#readme"
+}

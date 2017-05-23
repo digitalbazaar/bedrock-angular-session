@@ -1,20 +1,15 @@
 /*!
- * Copyright (c) 2015-2016 Digital Bazaar, Inc. All rights reserved.
+ * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
-define(['angular'], function(angular) {
+import angular from 'angular';
 
-'use strict';
-
-function register(module) {
-  module.component('brSessionLogout', {
-    controller: Ctrl,
-    bindings: {
-      onLogout: '&?brOnLogout'
-    },
-    templateUrl:
-      requirejs.toUrl('bedrock-angular-session/session-logout-component.html')
-  });
-}
+export default {
+  controller: Ctrl,
+  bindings: {
+    onLogout: '&?brOnLogout'
+  },
+  templateUrl: 'bedrock-angular-session/session-logout-component.html'
+};
 
 /* @ngInject */
 function Ctrl($location, $scope, brAlertService, brSessionService) {
@@ -38,7 +33,3 @@ function Ctrl($location, $scope, brAlertService, brSessionService) {
     });
   };
 }
-
-return register;
-
-});
