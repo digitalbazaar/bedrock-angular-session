@@ -8,7 +8,8 @@ import SessionHovercardComponent from './session-hovercard-component.js';
 import SessionLogoutComponent from './session-logout-component.js';
 import SessionService from './session-service.js';
 
-var module = angular.module('bedrock.session', ['bedrock.resolver']);
+var module = angular.module(
+  'bedrock.session', ['bedrock.model', 'bedrock.resolver']);
 
 module.component('brSessionHovercard', SessionHovercardComponent);
 module.component('brSessionLogout', SessionLogoutComponent);

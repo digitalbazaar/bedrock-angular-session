@@ -8,6 +8,9 @@
     "bedrock-angular-model": "^3.0.0",
     "bedrock-angular-resolver": "^3.0.0"
   },
+  "bedrock": {
+    "browserDependencies": "all"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/digitalbazaar/bedrock-angular-session.git"
