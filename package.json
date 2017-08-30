@@ -4,7 +4,10 @@
   "description": "Provides an Angular service for bedrock-session-http",
   "main": "index.js",
   "dependencies": {
-    "angular": "~1.6.4",
+    "angular-stackables": "^1.2.4",
+    "bedrock-angular": "^3.0.0",
+    "bedrock-angular-alert": "digitalbazaar/bedrock-angular-alert#material",
+    "bedrock-angular-material": "^1.0.1",
     "bedrock-angular-model": "^3.0.0",
     "bedrock-angular-resolver": "^3.0.0"
   },
