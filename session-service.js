@@ -4,37 +4,36 @@
  * Copyright (c) 2015-2017 Digital Bazaar, Inc. All rights reserved.
  */
 /* @ngInject */
-export default function factory($http, brModelService) {
-  var service = {};
+export default function factory($http, $q, brModelService) {
+  const service = {};
 
   // empty session to start
   service.session = {};
 
-  service.get = function() {
-    // TODO: make URL configurable
-    return Promise.resolve($http({method: 'GET', url: '/session', queue: true}))
-      .then(function(response) {
-        // update session in place
-        brModelService.replace(service.session, response.data);
-        return service.session;
-      });
-  };
+  // TODO: make URL configurable
+  service.get = () => $http({method: 'GET', url: '/session'})
+    .then(response => {
+      // update session in place
+      brModelService.replace(service.session, response.data);
+
+      // FIXME: determine if it's a good idea to wrap this in $q.resolve
+      // see the `promiseIssue` branch of this module
+      return $q.resolve(service.session);
+    });
 
   /**
    * Logs out any identity that currently has an authenticated session.
    *
    * @return a Promise that resolves once the logout has finished.
    */
-  service.logout = function() {
-    // TODO: make URL configurable
-    return Promise.resolve($http.get('/session/logout')).then(function(res) {
-      if(res.status !== 200) {
-        throw new Error('Logout failed.');
-      }
-      // refresh session, ignore error
-      return service.get().catch(function() {});
-    });
-  };
+  // TODO: make URL configurable
+  service.logout = () => $http.get('/session/logout').then(response => {
+    if(response.status !== 200) {
+      throw new Error('Logout failed.');
+    }
+    // refresh session, ignore error
+    return service.get().catch(() => {});
+  });
 
   return service;
 }

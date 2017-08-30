@@ -1,0 +1,36 @@
+{
+  "name": "bedrock-angular-session-test",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node test.js",
+    "test": "node test.js test",
+    "postinstall": "node --preserve-symlinks test compile-less"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/digitalbazaar/bedrock-angular-session/issues"
+  },
+  "dependencies": {
+    "bedrock": "^1.0.6",
+    "bedrock-angular": "^3.0.0",
+    "bedrock-angular-form": "^3.0.8",
+    "bedrock-angular-material": "^1.0.1",
+    "bedrock-angular-session": "file:..",
+    "bedrock-express": "^2.0.6",
+    "bedrock-server": "^2.3.0",
+    "bedrock-session-http": "^3.0.2",
+    "bedrock-views": "^5.3.0"
+  },
+  "bedrock": {
+    "browserDependencies": [
+      "bedrock-angular",
+      "bedrock-angular-form",
+      "bedrock-angular-session"
+    ]
+  },
+  "engines": {
+    "node": ">=6.11.0"
+  },
+  "browser": "index.js"
+}

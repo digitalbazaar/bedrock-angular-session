@@ -1,0 +1,34 @@
+<div>
+  <h3>Session Information</h3>
+  <pre>{{$ctrl.session | json}}</pre>
+
+  <div ng-if="!$ctrl.session.id" align="center">
+    <form ng-submit="$ctrl.submit()">
+      <fieldset>
+        <legend>Sign In</legend>
+        <br-input br-model="$ctrl.username"
+          br-options="{
+            name: 'username', label: 'Username',
+            autofocus: true,
+            theme: 'material'
+          }">
+        </br-input>
+        <br-input br-model="$ctrl.password"
+          br-options="{
+            name: 'password', label: 'Password',
+            type: 'password',
+            theme: 'material'
+          }">
+        </br-input>
+        <md-button type="submit" class="md-primary md-raised">Login</md-button>
+      </fieldset>
+    </form>
+  </div>
+
+  <md-button ng-click="$ctrl.check()" class="md-primary md-raised">
+    Check Session
+  </md-button>
+  <md-button ng-click="$ctrl.logout()" class="md-primary md-raised">
+    Log Out
+  </md-button>
+</div>

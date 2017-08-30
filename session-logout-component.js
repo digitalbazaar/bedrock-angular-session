@@ -13,23 +13,21 @@ export default {
 
 /* @ngInject */
 function Ctrl($location, $scope, brAlertService, brSessionService) {
-  var self = this;
+  const self = this;
 
-  self.logout = function() {
-    var err_ = null;
-    brSessionService.logout().catch(function(err) {
+  self.logout = () => {
+    let err_ = null;
+    brSessionService.logout().catch(err => {
       err_ = err;
-    }).then(function() {
+    }).then(() => {
       if(angular.isDefined(self.onLogout)) {
         return self.onLogout({err: err_});
       }
       if(err_) {
         brAlertService.add('error', err_, {scope: $scope});
-        $scope.$apply();
         return;
       }
       $location.url('/');
-      $scope.$apply();
     });
   };
 }

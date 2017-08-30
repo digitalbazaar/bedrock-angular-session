@@ -8,15 +8,15 @@ import SessionHovercardComponent from './session-hovercard-component.js';
 import SessionLogoutComponent from './session-logout-component.js';
 import SessionService from './session-service.js';
 
-var module = angular.module(
-  'bedrock.session', ['bedrock.model', 'bedrock.resolver']);
+const module = angular.module('bedrock.session', [
+  'bedrock.model', 'bedrock.resolver', 'ngMaterial', 'stackables']);
 
 module.component('brSessionHovercard', SessionHovercardComponent);
 module.component('brSessionLogout', SessionLogoutComponent);
 module.service('brSessionService', SessionService);
 
 /* @ngInject */
-module.config(function(routeResolverProvider) {
+module.config(routeResolverProvider => {
   routeResolverProvider.add('session', resolve);
 
   /* @ngInject */
