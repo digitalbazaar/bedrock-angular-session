@@ -1,3 +1,13 @@
+*.py[co]
+*.sw[nop]
+*~
+.nyc_output
+.project
+.settings
+TAGS
+reports
+.cache
+
 # Logs
 logs
 *.log
