@@ -1,5 +1,9 @@
 # bedrock-angular-session ChangeLog
 
+### Changed
+- **BREAKING**: Switch to material design.
+- Use ES6 syntax.
+
 ## 4.0.1 - 2017-05-30
 
 ### Fixed
